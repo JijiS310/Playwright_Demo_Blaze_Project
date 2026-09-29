@@ -19,7 +19,7 @@ test('Click Sign up', async ({ page }) => {
   const signupLink =  page.getByRole('link', { name: 'Sign up' })
   await signupLink.click();
   const usernameInput = page.locator('#sign-username');
-  await usernameInput.fill('JijiRej');
+  await usernameInput.fill('JijiRej001');
   const passwordInput = page.locator('#sign-password');
   await passwordInput.fill('Test@123');
   const signUpBtn = page.getByRole('button', { name: 'Sign up' });
