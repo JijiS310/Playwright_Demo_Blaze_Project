@@ -22,13 +22,13 @@ export default defineConfig({
     ['allure-playwright']
   ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
-  //use: {
+  use: {
     /* Base URL to use in actions like `await page.goto('')`. */
-    // baseURL: 'http://localhost:3000',
+    baseURL: 'https://www.demoblaze.com/',
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
    // trace: 'on-first-retry',
    // headless: true,
-  //},
+  },
 
   /* Configure projects for major browsers */
 
@@ -43,27 +43,27 @@ export default defineConfig({
     trace:'retain-on-failure'
   },
   },
-{
-  name:'firefoxProject', //ourchoice name
-    use: {
-    browserName:'firefox',
-    headless: false,
-    screenshot:'only-on-failure',
-    video:'retain-on-failure',
-    trace:'retain-on-failure'
-}
-},
-{
-    name:'webkit',
-    use: {
-    browserName:'webkit',
-    headless: false,
-    screenshot:'only-on-failure',
-    video:'retain-on-failure',
-    trace:'retain-on-failure'
+// {
+//   name:'firefoxProject', //ourchoice name
+//     use: {
+//     browserName:'firefox',
+//     headless: false,
+//     screenshot:'only-on-failure',
+//     video:'retain-on-failure',
+//     trace:'retain-on-failure'
+// }
+// },
+// {
+//     name:'webkit',
+//     use: {
+//     browserName:'webkit',
+//     headless: false,
+//     screenshot:'only-on-failure',
+//     video:'retain-on-failure',
+//     trace:'retain-on-failure'
   
-}
-}
+// }
+// }
  ],
 
   // projects: [

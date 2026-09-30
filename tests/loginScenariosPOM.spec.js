@@ -2,10 +2,8 @@ import {test} from '@playwright/test';
 import { ObjectManager } from '../pages/ObjectManager';
 import inputData from '../utils/inputData.json';
 
+test('Test1:Sign up with valid credentials', async ({ page }) => {
 
-
-
-test('Sign up with valid credentials', async ({ page }) => {
     const uniqueUsername = `${inputData.username}_${Date.now()}`;
     const pom = new ObjectManager(page);
     const signupPage = pom.getSignupPage();
@@ -15,7 +13,7 @@ test('Sign up with valid credentials', async ({ page }) => {
     await signupPage.clickSignUpButton();
 });
 
-test('Sign up with Close button', async ({ page }) => {
+test('Test2:Sign up with Close button', async ({ page }) => {
    
     const pom = new ObjectManager(page);
     const signupPage = pom.getSignupPage();
@@ -25,7 +23,7 @@ test('Sign up with Close button', async ({ page }) => {
     await signupPage.clickCloseButton();
 });
 
-test('Login with Valid Credentials', async ({ page }) => {
+test('Test3:Login with Valid Credentials', async ({ page }) => {
     
     const pom = new ObjectManager(page);
     const loginPage = pom.getLoginPage();
@@ -36,7 +34,8 @@ test('Login with Valid Credentials', async ({ page }) => {
     await loginPage.getWelcomeUserText(inputData.username);
 })
 
-test('Login with Invalid Username', async ({ page }) => {
+test('Test4:Login with Invalid Username', async ({ page }) => {
+
     const pom = new ObjectManager(page);
     const loginPage = pom.getLoginPage();  
     await loginPage.gotoPage();
@@ -45,7 +44,7 @@ test('Login with Invalid Username', async ({ page }) => {
     await loginPage.getInvalidUserErrorMessage();
 })
 
-test('Login with invalid password', async ({page}) => {
+test('Test5:Login with invalid password', async ({page}) => {
    
     const pom = new ObjectManager(page);
     const loginPage = pom.getLoginPage();
@@ -55,7 +54,8 @@ test('Login with invalid password', async ({page}) => {
     await loginPage.getInvalidPassErrorMessage();
 })
 
-test('Login with invalid username and password', async ({page}) => {
+test('Test6:Login with invalid username and password', async ({page}) => {
+
     const pom = new ObjectManager(page);
     const loginPage = pom.getLoginPage();   
     await loginPage.gotoPage();

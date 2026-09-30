@@ -11,7 +11,7 @@ export class LoginPage {
     }
 
      async gotoPage(){
-        await this.page.goto('https://www.demoblaze.com/');
+        await this.page.goto('/');
      }
 
      async clickLoginUrl() {
@@ -36,7 +36,7 @@ export class LoginPage {
         await this.loginBtn.click();
         const dialog = await dialogPromise;
         console.log(`Dialog message: ${dialog.message()}`);
-        await expect(dialog.message()).toBe('User does not exist.');
+        expect(dialog.message()).toBe('User does not exist.');
         await dialog.accept();
      }
 
@@ -47,7 +47,7 @@ export class LoginPage {
         await this.loginBtn.click();
         const dialog = await dialogPromise;
         console.log(`Dialog message: ${dialog.message()}`);
-        await expect(dialog.message()).toBe('Wrong password.');
+         expect(dialog.message()).toBe('Wrong password.');
         await dialog.accept();
      }
 

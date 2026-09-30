@@ -10,7 +10,7 @@ export class SignupPage {
     }
 
     async gotoPage(){
-        await this.page.goto('https://www.demoblaze.com/');
+        await this.page.goto('/');
     }
 
     async clickSignUpLink() {
@@ -30,6 +30,7 @@ export class SignupPage {
         expect(dialog.message()).toBe('Sign up successful.');
         await dialog.accept();
     }
+
 
     async clickCloseButton() {
         await this.closeBtn.click();
