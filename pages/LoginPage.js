@@ -1,4 +1,5 @@
-import { expect } from '@playwright/test';
+
+import { DialogUtils } from '../utils/dialogUtils';
 export class LoginPage {
     constructor(page) {
         this.page = page;
@@ -27,28 +28,10 @@ export class LoginPage {
         await this.loginBtn.click();
      }
 
-     async getWelcomeUserText(uname) {
-        await expect(this.welcomeUser).toHaveText(`Welcome ${uname}`);
-     }  
-
-     async getInvalidUserErrorMessage() {
-        const dialogPromise = this.page.waitForEvent('dialog');
-        await this.loginBtn.click();
-        const dialog = await dialogPromise;
-        console.log(`Dialog message: ${dialog.message()}`);
-        expect(dialog.message()).toBe('User does not exist.');
-        await dialog.accept();
-     }
-
-     
-
-     async getInvalidPassErrorMessage() {
-        const dialogPromise = this.page.waitForEvent('dialog');
-        await this.loginBtn.click();
-        const dialog = await dialogPromise;
-        console.log(`Dialog message: ${dialog.message()}`);
-         expect(dialog.message()).toBe('Wrong password.');
-        await dialog.accept();
+     async clickLoginButtonAndGetDialog() {
+      const dialogPromise = DialogUtils.handleDialog(this.page);
+      await this.loginBtn.click();
+      return await dialogPromise;
      }
 
 

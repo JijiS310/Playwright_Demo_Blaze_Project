@@ -1,4 +1,4 @@
-import { expect } from '@playwright/test';
+import { DialogUtils } from '../utils/dialogUtils';
 export class SignupPage {
     constructor(page) {
         this.page = page;
@@ -7,6 +7,7 @@ export class SignupPage {
         this.passwordInput = page.locator('#sign-password');
         this.signUpBtn = page.getByRole('button', { name: 'Sign up' });
         this.closeBtn = page.locator('button.btn.btn-secondary:visible');
+        this.signUpModalTitle = page.locator('#signInModalLabel');
     }
 
     async gotoPage(){
@@ -23,16 +24,19 @@ export class SignupPage {
     }
 
     async clickSignUpButton() {
-        const dialogPromise = this.page.waitForEvent('dialog');
-        await this.signUpBtn.click();
-        const dialog = await dialogPromise;
-        console.log(`Dialog message: ${dialog.message()}`);
-        expect(dialog.message()).toBe('Sign up successful.');
-        await dialog.accept();
-    }
+    const dialogPromise = DialogUtils.handleDialog(this.page);
+    await this.signUpBtn.click();
+    return await dialogPromise;
+}
 
 
     async clickCloseButton() {
+
         await this.closeBtn.click();
     }
+
+    getSignUpModalTitle() {
+    return this.signUpModalTitle
+}
+
 }

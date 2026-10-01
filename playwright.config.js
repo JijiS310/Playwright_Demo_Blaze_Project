@@ -15,7 +15,7 @@ export default defineConfig({
   /* Run tests in files in parallel */
  // fullyParallel: true,
   /* Retry on failure */
-  retries: 1,
+  //retries: 1,
  // workers: 1,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: [
