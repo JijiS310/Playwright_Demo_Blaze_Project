@@ -2,5 +2,14 @@
 "username":"JijiRej",
 "password":"Test@123",
 "invalidUsername":"JIJI1111",
-"invalidPassword":"JIJI@123"
+"invalidPassword":"JIJI@123",
+"productName":"Samsung galaxy s6",
+"phoneProductName":"Nokia lumia 1520",
+"monitorProductName":"Apple monitor 24",
+"name":"Jiji Sasidharan",
+"country":"India",
+"city":"Thrissur",
+"creditCard":"1234567890123456",
+"month":"12",
+"year":"2029"
 }

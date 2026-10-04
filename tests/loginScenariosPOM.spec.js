@@ -2,7 +2,7 @@ import {test,expect} from '@playwright/test';
 import { ObjectManager } from '../pages/ObjectManager';
 import inputData from '../utils/inputData.json';
 
-test('Test1:Sign up with valid credentials', async ({ page }) => {
+test('Test 1: Sign up with valid credentials', async ({ page }) => {
 
     const uniqueUsername = `${inputData.username}_${Date.now()}`;
     const pom = new ObjectManager(page);
@@ -14,7 +14,7 @@ test('Test1:Sign up with valid credentials', async ({ page }) => {
     expect(dialogMessage).toBe('Sign up successful.');
 });
 
-test.only('Test2:Sign up with Close button', async ({ page }) => {
+test('Test 2: Sign up with Close button', async ({ page }) => {
    
     const pom = new ObjectManager(page);
     const signupPage = pom.getSignupPage();
@@ -26,7 +26,7 @@ test.only('Test2:Sign up with Close button', async ({ page }) => {
     await expect(signupPage.getSignUpModalTitle()).toBeHidden();
 });
 
-test('Test3:Login with Valid Credentials', async ({ page }) => {
+test('Test 3: Login with Valid Credentials', async ({ page }) => {
     
     const pom = new ObjectManager(page);
     const loginPage = pom.getLoginPage();
@@ -37,7 +37,7 @@ test('Test3:Login with Valid Credentials', async ({ page }) => {
     await expect(loginPage.welcomeUser).toHaveText(`Welcome ${inputData.username}`);
 });
 
-test('Test4:Login with Invalid Username', async ({ page }) => {
+test('Test 4:Login with Invalid Username', async ({ page }) => {
 
     const pom = new ObjectManager(page);
     const loginPage = pom.getLoginPage();  
@@ -48,7 +48,7 @@ test('Test4:Login with Invalid Username', async ({ page }) => {
     expect(dialogMessage).toBe('User does not exist.');
 })
 
-test('Test5:Login with invalid password', async ({page}) => {
+test('Test 5:Login with invalid password', async ({page}) => {
    
     const pom = new ObjectManager(page);
     const loginPage = pom.getLoginPage();
@@ -59,7 +59,7 @@ test('Test5:Login with invalid password', async ({page}) => {
     expect(dialogMessage).toBe('Wrong password.');
 })
 
-test('Test6:Login with invalid username and password', async ({page}) => {
+test('Test 6: Login with invalid username and password', async ({page}) => {
 
     const pom = new ObjectManager(page);
     const loginPage = pom.getLoginPage();   
@@ -69,3 +69,17 @@ test('Test6:Login with invalid username and password', async ({page}) => {
     const dialogMessage = await loginPage.clickLoginButtonAndGetDialog();
     expect(dialogMessage).toBe('User does not exist.');
 })
+
+test('Test 10 : Verify Logout functionality', async ({page}) => {
+   const pom = new ObjectManager(page);
+    const loginPage = pom.getLoginPage();
+    await loginPage.gotoPage(); 
+    await loginPage.clickLoginUrl();
+    await loginPage.fillLoginForm(inputData.username, inputData.password);
+    await loginPage.clickLoginButton();
+    await expect(loginPage.welcomeUser).toHaveText(`Welcome ${inputData.username}`);
+    await loginPage.clickLogOutButton();
+    await expect(loginPage.login).toBeVisible();
+
+})
+

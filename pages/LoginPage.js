@@ -8,6 +8,7 @@ export class LoginPage {
         this.passwordInput = page.locator('#loginpassword');
         this.loginBtn = page.getByRole('button', { name: 'Log in' });
         this.welcomeUser = page.locator('#nameofuser');
+        this.logOutButton = page.getByRole('link', { name: 'Log out' });
 
     }
 
@@ -34,5 +35,8 @@ export class LoginPage {
       return await dialogPromise;
      }
 
-
-}
+     async clickLogOutButton() {
+        await this.logOutButton.click();
+     }
+     
+   }

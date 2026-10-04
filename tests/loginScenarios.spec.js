@@ -115,3 +115,28 @@ test('Login with invalid Username and Password', async ({ page }) => {
   expect(dialog.message()).toBe('User does not exist.');
   await dialog.accept();
 })
+
+test('add to cart and click ok', async ({ page }) => {
+  await page.goto('https://www.demoblaze.com/');
+  const login = page.locator('#login2')
+  await login.click();
+  const loginUsername = page.locator('#loginusername');
+  await loginUsername.click();
+  await loginUsername.fill('JijiRej');
+  const loginPassword = page.locator('#loginpassword');
+  await loginPassword.click();
+  await loginPassword.fill('Test@123');
+  const loginBtn = page.getByRole('button', { name: 'Log in' });
+  await loginBtn.click();
+  const welcomeUser = page.locator('#nameofuser');
+  await expect(welcomeUser).toHaveText('Welcome JijiRej');
+  const productLink = page.getByText('Samsung galaxy s6');
+  await productLink.click();
+  const addToCartBtn = page.getByText('Add to cart');
+  const dialogPromise = page.waitForEvent('dialog');
+  await addToCartBtn.click();
+  const dialog = await dialogPromise;
+  console.log(`Dialog message: ${dialog.message()}`);
+  expect(dialog.message()).toBe('Product added.');
+  await dialog.accept();
+})
