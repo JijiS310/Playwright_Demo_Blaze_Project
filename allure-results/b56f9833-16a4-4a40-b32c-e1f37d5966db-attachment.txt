@@ -1,0 +1,3 @@
+Dialog message: Product added.
+Product in cart is : Samsung galaxy s6
+Delete count: 1

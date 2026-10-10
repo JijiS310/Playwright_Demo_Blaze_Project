@@ -1,2 +1,0 @@
-Dialog message: Product added.
-Product in cart is : 

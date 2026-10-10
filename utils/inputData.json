@@ -1,15 +1,39 @@
 {
 "username":"JijiRej",
 "password":"Test@123",
-"invalidUsername":"JIJI1111",
-"invalidPassword":"JIJI@123",
-"productName":"Samsung galaxy s6",
-"phoneProductName":"Nokia lumia 1520",
-"monitorProductName":"Apple monitor 24",
+
+"invalidLogins" : [
+  {
+    "testName": "invalid username",
+    "username": "JIJI1111",
+    "password": "Test@123",
+    "message": "User does not exist."
+  },
+  {
+    "testName": "invalid password",
+    "username": "JijiRej",
+    "password": "JIJI@123",
+    "message": "Wrong password."
+  },
+  {
+    "testName": "invalid username and password",
+    "username": "JIJI1111",
+    "password": "JIJI@123",
+    "message": "User does not exist."
+  }
+],
+
+"products": [
+  { "productName": "Samsung galaxy s6" },
+  { "category": "Phones",   "productName": "Nokia lumia 1520", "purchase": true },
+  { "category": "Monitors", "productName": "Apple monitor 24", "purchase": true }
+],
+
 "name":"Jiji Sasidharan",
 "country":"India",
 "city":"Thrissur",
 "creditCard":"1234567890123456",
 "month":"12",
 "year":"2029"
+
 }

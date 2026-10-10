@@ -1,4 +1,0 @@
-Dialog message: Product added.
-Product in cart is : Nokia lumia 1520
-Purchase confirmation message is : Thank you for your purchase!
-Order details are : Id: 7324132Amount: 820 USDCard Number: 1234567890123456Name: Jiji SasidharanDate: 4/9/2026

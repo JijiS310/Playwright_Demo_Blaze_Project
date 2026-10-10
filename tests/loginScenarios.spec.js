@@ -14,7 +14,7 @@ https://www.demoblaze.com/
 
 import { test, expect } from '@playwright/test';
 
-test('Click Sign up', async ({ page }) => {
+test.skip('Click Sign up', async ({ page }) => {
   await page.goto('https://www.demoblaze.com/');
   const signupLink =  page.getByRole('link', { name: 'Sign up' })
   await signupLink.click();
@@ -31,7 +31,7 @@ test('Click Sign up', async ({ page }) => {
   await dialog.accept();
 })
 
-test('Click Close', async ({ page }) => {
+test.skip('Click Close', async ({ page }) => {
   await page.goto('https://www.demoblaze.com/');
   const signUp =  page.getByRole('link', { name: 'Sign up' })
   await signUp.click();
@@ -43,7 +43,7 @@ test('Click Close', async ({ page }) => {
   await closeBtn.click();
 })
 
-test('Login with valid credentials', async ({ page }) => {
+test.skip('Login with valid credentials', async ({ page }) => {
   await page.goto('https://www.demoblaze.com/');
   const login = page.locator('#login2')
   await login.click();
@@ -59,7 +59,7 @@ test('Login with valid credentials', async ({ page }) => {
   await expect(welcomeUser).toHaveText('Welcome JijiRej');
 })
 
-test('Login with invalid username', async ({ page }) => {
+test.skip('Login with invalid username', async ({ page }) => {
   await page.goto('https://www.demoblaze.com/');
   const login = page.locator('#login2')
   await login.click();
@@ -78,7 +78,7 @@ test('Login with invalid username', async ({ page }) => {
   await dialog.accept();
 })
 
-test('Login with invalid password', async ({ page }) => {
+test.skip('Login with invalid password', async ({ page }) => {
   await page.goto('https://www.demoblaze.com/');
   const login = page.locator('#login2')
   await login.click();
@@ -97,7 +97,7 @@ test('Login with invalid password', async ({ page }) => {
   await dialog.accept();
 })
 
-test('Login with invalid Username and Password', async ({ page }) => {
+test.skip('Login with invalid Username and Password', async ({ page }) => {
   await page.goto('https://www.demoblaze.com/');
   const login = page.locator('#login2')
   await login.click();
@@ -116,7 +116,7 @@ test('Login with invalid Username and Password', async ({ page }) => {
   await dialog.accept();
 })
 
-test('add to cart and click ok', async ({ page }) => {
+test.skip('add to cart and click ok', async ({ page }) => {
   await page.goto('https://www.demoblaze.com/');
   const login = page.locator('#login2')
   await login.click();

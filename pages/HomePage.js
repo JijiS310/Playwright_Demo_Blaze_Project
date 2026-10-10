@@ -1,32 +1,15 @@
 export class HomePage{
-    constructor(page, proName){ 
+    constructor(page){ 
     this.page = page;
-    this.productLink = page.getByRole('link', { name: 'Samsung galaxy s6' });
-    this.phoneProductLink = page.getByRole('link', { name: 'Nokia lumia 1520' });
-    this.phoneCategory = page.getByRole('link', { name: 'Phones' });
-    this.monitorCategory = page.getByRole('link', { name: 'Monitors' });
-    this.monitorProductLink = page.getByRole('link', { name: 'Apple monitor 24' });
+    
     }
+     async clickCategory(category) {
+    await this.page.getByRole('link', { name: category, exact: true }).click();
+  }
 
-    async clickProductLink(){
-        await this.productLink.click();
-    }
-
-    async clickPhoneProduct(){
-        await this.phoneProductLink.click();
-    }
-
-    async clickPhoneCategory(){
-        await this.phoneCategory.click();
-    }
-
-    async clickMonitorCategory(){
-        await this.monitorCategory.click();
-    }
-
-    async clickMonitorProduct(){
-        await this.monitorProductLink.click();
-    }
+  async clickProductLink(productName) {
+    await this.page.locator('h4.card-title').getByRole('link', { name: productName, exact: true }).click();
+  }
 
 }
 

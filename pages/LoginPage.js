@@ -3,7 +3,7 @@ import { DialogUtils } from '../utils/dialogUtils';
 export class LoginPage {
     constructor(page) {
         this.page = page;
-        this.login = page.locator('#login2')
+        this.loginIcon = page.locator('#login2')
         this.usernameInput = page.locator('#loginusername');
         this.passwordInput = page.locator('#loginpassword');
         this.loginBtn = page.getByRole('button', { name: 'Log in' });
@@ -12,12 +12,12 @@ export class LoginPage {
 
     }
 
-     async gotoPage(){
-        await this.page.goto('/');
-     }
+   //   async gotoPage(){
+   //      await this.page.goto('/');
+   //   }
 
      async clickLoginUrl() {
-        await this.login.click();
+        await this.loginIcon.click();
      }
 
      async fillLoginForm(uname, pwd) {

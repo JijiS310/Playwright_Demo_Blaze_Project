@@ -10,9 +10,9 @@ export class SignupPage {
         this.signUpModalTitle = page.locator('#signInModalLabel');
     }
 
-    async gotoPage(){
-        await this.page.goto('/');
-    }
+    // async gotoPage(){
+    //     await this.page.goto('/');
+    // }
 
     async clickSignUpLink() {
         await this.signupLink.click();
